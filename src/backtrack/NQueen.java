@@ -74,7 +74,7 @@ public class NQueen {
 	}
 
 	public static void main(String[] args) {
-		NQueen queen = new NQueen(10);
+		NQueen queen = new NQueen(4);
 		queen.solve(queen.noOfQueens);
 	}
 }
