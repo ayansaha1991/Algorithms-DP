@@ -17,7 +17,7 @@ public class RatInMaze {
 					{ 0, 0, 0, 0, 1 }, 
 					{ 0, 1, 1, 0, 1 },
 					{ 1, 0, 1, 1, 1 }, 
-					{ 1, 0, 1, 1, 1 } 
+					{ 1, 0, 1, 1, 1 }
 				};
 
 		RatInMaze problem = new RatInMaze(5);
@@ -58,21 +58,16 @@ public class RatInMaze {
 		return false;
 	}
 
+	/**
+	 * X and Y co ordinate has to be between 0, boardSize
+	 * Also it can't be an obstacle, denoted by 1 in the Maze 
+	 */
 	private boolean isSafe(int x, int y, int[][] maze) {
 
-		if (x >= boardSize || y > boardSize) {
-			return false;
-		}
-
-		if (x < 0 || y < 0) {
-			return false;
-		}
+		return (x >= 0 && x < boardSize 
+				&& y >= 0 && y < boardSize 
+				&& maze[x][y] == 1); 
 		
-		if (maze[x][y] == 0) {
-			return false;
-		}
-
-		return true;
 	}
 
 	private void printSolution() {
