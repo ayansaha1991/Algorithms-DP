@@ -5,8 +5,6 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
-import sun.reflect.generics.tree.Tree;
-
 public class InvalidParenthesisRemoval {
 
 	private String expression;
@@ -46,8 +44,6 @@ public class InvalidParenthesisRemoval {
 				}
 			}
 		}
-		
-		
 	}
 	
 	private boolean ifParenthessis(char el) {
