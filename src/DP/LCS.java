@@ -7,16 +7,19 @@ package DP;
  */
 public class LCS {
 
-	public int lcs(char[] str1, char[] str2, int m, int n) {
+	public int lcs(char[] firstStr, char[] secondStr, int firstStrLen, int secondStrLen) {
 		
-		if (m == 0 || n == 0) {
+		if (firstStrLen == 0 || secondStrLen == 0) {
 			return 0;
 		}
 		
-		if ( str1[m-1] == str2[n-1]) {
-			return 1 + lcs(str1, str2, m-1, n-1);
+		if (firstStr[firstStrLen - 1] == secondStr[secondStrLen - 1]) {
+			return 1 + lcs(firstStr, secondStr, firstStrLen - 1,
+					secondStrLen - 1);
 		} else {
-			return Math.max(lcs(str1, str2, m-1, n), lcs(str1, str2, m, n-1));
+			return Math.max(
+					lcs(firstStr, secondStr, firstStrLen - 1, secondStrLen),
+					lcs(firstStr, secondStr, firstStrLen, secondStrLen - 1));
 		}
 		
 	}
@@ -43,14 +46,14 @@ public class LCS {
 	
 	public static void main(String[] args) {
 		
-		String str1 = "ABCDFHfJKFHSDJKFHSDJKDHKFSDHKFJSDFKSDFHSDKFHSDJKFSFJHDFJDHfjhsdjkadasdsdsdasjfhsdjkfhdsjkfhdjkfhsdjkfhsdjkfhjkfhdjskfhjkdhfjdhfjkFJDSHFDJSHFDJKHSDJKFHDSJFS";
-		String str2 = "ABCJKSDHFJADJSADHJSAHDJASHDJKAJFHSDJKFHSDJFHSDJKFHSDJFH";
+		String str1 = "ABCDFHfJJJJJJJJJJJJ";
+		String str2 = "ABCJKSDHJJJJJJJJJJJJJ";
 		
 		char[] str1Array = str1.toCharArray();
 		char[] str2Array = str2.toCharArray();
 		
 		LCS solveLcs = new LCS();
-		//System.out.println(solveLcs.lcs(str1Array, str2Array, str1.length(), str2.length()));
+//		System.out.println(solveLcs.lcs(str1Array, str2Array, str1.length(), str2.length()));
 		System.out.println(solveLcs.lcs_dp(str1Array, str2Array, str1Array.length, str2Array.length));
 	}
 }
