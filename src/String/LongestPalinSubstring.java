@@ -23,10 +23,12 @@ public class LongestPalinSubstring
 		int maxLenth = 1;
 		int start = 0;
 		
+		//All single char sub str is palindrom
 		for (int i = 0; i < N; i++) {
 			dp[i][i] = true;
 		}
 		
+		//2 char sub strs are palindrom if str.charAt(i) == str.charAt(i+1)
 		for (int i = 0; i < N-1; i++) {
 			if (str.charAt(i) == str.charAt(i+1)) {
 				dp[i][i+1] = true;
